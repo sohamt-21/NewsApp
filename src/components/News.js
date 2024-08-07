@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 
 export default class News extends Component {
+  
   static defaultProps = {
     country: 'in',
     pageSize: 8,
@@ -29,7 +30,7 @@ export default class News extends Component {
 
 
   async componentDidMount() {
-    let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=f14aa872617a4b9790b9e57329a19bc1&page=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=7ebcbd7288204b289379ac3fb31e87c3&page=1&pageSize=5`;
     this.setState({ loading: true })
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -43,7 +44,7 @@ export default class News extends Component {
 
   handlePrevClick = async () => {
 
-    let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=f14aa872617a4b9790b9e57329a19bc1&page=${this.props.pageSize-1}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=7ebcbd7288204b289379ac3fb31e87c3&page=${this.state.page-1}&pageSize=${this.props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
@@ -60,7 +61,7 @@ export default class News extends Component {
 
   handleNextClick = async () => {
     if (!(this.state.page + 1 > Math.ceil(this.totalResults / this.props.pageSize))) {
-      let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=f14aa872617a4b9790b9e57329a19bc1&page=1&pageSize=${this.props.pageSize+1}`;
+      let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=7ebcbd7288204b289379ac3fb31e87c3&page=${this.state.page +1}&pageSize=${this.props.pageSize}`;
       this.setState({ loading: true });
       let data = await fetch(url);
       let parsedData = await data.json();
@@ -96,3 +97,5 @@ export default class News extends Component {
     )
   }
 }
+
+// https://newsapi.org/v2/top-headlines?country=in&category=entertaintment&apiKey=7ebcbd7288204b289379ac3fb31e87c3&page=1&pageSize=10

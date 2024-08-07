@@ -20,9 +20,8 @@ export default class NavBar extends Component {
                 <li className="nav-item">
                   <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                 </li>
-                <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
-                <li className='bav-item'><Link className='nav-link' to="/buisness">Buisness</Link></li>
-                <li className='bav-item'><Link className='nav-link' to="/entertaintment">Entertaintment</Link></li>
+                <li className='bav-item'><Link className='nav-link' to="/business">Business</Link></li>
+                <li className='bav-item'><Link className='nav-link' to="/entertainment">Entertainment</Link></li>
                 <li className='bav-item'><Link className='nav-link' to="/general">General</Link></li>
                 <li className='bav-item'><Link className='nav-link' to="/health">Health</Link></li>
                 <li className='bav-item'><Link className='nav-link' to="/science">Science</Link></li>
@@ -36,4 +35,3 @@ export default class NavBar extends Component {
     )
   }
 }
-
